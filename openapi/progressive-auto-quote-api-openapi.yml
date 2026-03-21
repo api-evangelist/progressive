@@ -1,0 +1,88 @@
+openapi: 3.1.0
+info:
+  title: Progressive Auto Quote API
+  description: >-
+    The Progressive Auto Quote API enables partners to embed auto insurance
+    quoting capabilities directly into their applications. Partners can return
+    estimated auto insurance rates with customizable options including SDK and
+    headless API integration. The API supports both non-production and
+    production environments for testing and live deployments.
+  version: '1.0'
+servers:
+  - url: https://api.progressive.com
+tags:
+  - name: Quotes
+    description: Create and retrieve auto insurance quotes.
+  - name: Vehicles
+    description: Manage vehicle information for quoting.
+  - name: Drivers
+    description: Manage driver profiles for quoting.
+paths:
+  /quotes:
+    get:
+      operationId: listQuotes
+      summary: List quotes
+      description: >-
+        Retrieves a list of auto insurance quotes previously created for
+        the authenticated partner session.
+      tags:
+        - Quotes
+      responses:
+        '200':
+          description: Success
+    post:
+      operationId: createQuote
+      summary: Create a quote
+      description: >-
+        Creates a new auto insurance quote based on the provided driver,
+        vehicle, and coverage information. Returns estimated rates and
+        coverage options.
+      tags:
+        - Quotes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                drivers:
+                  type: array
+                  items:
+                    type: object
+                vehicles:
+                  type: array
+                  items:
+                    type: object
+                coverageOptions:
+                  type: object
+      responses:
+        '201':
+          description: Quote created successfully
+  /vehicles:
+    get:
+      operationId: listVehicles
+      summary: List vehicles
+      description: >-
+        Retrieves a list of vehicles associated with the current quoting session.
+      tags:
+        - Vehicles
+      responses:
+        '200':
+          description: Success
+  /drivers:
+    get:
+      operationId: listDrivers
+      summary: List drivers
+      description: >-
+        Retrieves a list of drivers associated with the current quoting session.
+      tags:
+        - Drivers
+      responses:
+        '200':
+          description: Success
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
