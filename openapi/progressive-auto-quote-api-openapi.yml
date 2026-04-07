@@ -11,12 +11,12 @@ info:
 servers:
   - url: https://api.progressive.com
 tags:
+  - name: Drivers
+    description: Manage driver profiles for quoting.
   - name: Quotes
     description: Create and retrieve auto insurance quotes.
   - name: Vehicles
     description: Manage vehicle information for quoting.
-  - name: Drivers
-    description: Manage driver profiles for quoting.
 paths:
   /quotes:
     get:

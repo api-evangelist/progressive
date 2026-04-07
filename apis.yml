@@ -1,16 +1,14 @@
 aid: progressive
-url: 
-  https://raw.githubusercontent.com/api-evangelist/progressive/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/progressive/refs/heads/main/apis.yml
 apis:
   - aid: progressive:auto-quote-api
     name: Progressive Auto Quote API
     tags:
-      - Insurance
       - Auto Insurance
-      - Quoting
       - Embedded Insurance
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Insurance
+      - Quoting
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.progressive.com
     humanURL: https://developer.progressive.com/s/clautoquoteapidoc
     properties:
@@ -28,11 +26,10 @@ apis:
   - aid: progressive:certificate-of-insurance-api
     name: Progressive Certificate of Insurance API
     tags:
-      - Insurance
       - Certificates
       - Commercial Insurance
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Insurance
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.progressive.com
     humanURL: https://developer.progressive.com/s/
     properties:
