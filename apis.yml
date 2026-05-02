@@ -1,5 +1,23 @@
 aid: progressive
+name: Progressive
+description: >-
+  The Progressive Corporation is one of the largest providers of car insurance in
+  the United States, also offering personal and commercial auto, home, renters, boat,
+  motorcycle, and other insurance products. Progressive operates a developer portal
+  at developer.progressive.com offering APIs for auto insurance quoting, certificate
+  of insurance generation, and agent portal integrations.
+type: Contract
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Auto Insurance
+  - Commercial Insurance
+  - Embedded Insurance
+  - Insurance
+  - Quoting
 url: https://raw.githubusercontent.com/api-evangelist/progressive/refs/heads/main/apis.yml
+created: '2026-03-21'
+modified: '2026-04-28'
+specificationVersion: '0.19'
 apis:
   - aid: progressive:auto-quote-api
     name: Progressive Auto Quote API
@@ -43,7 +61,11 @@ apis:
       This API enables partners and agents to automate the certificate issuance process,
       reducing manual effort and improving turnaround times for proof of insurance
       documentation.
-description: >-
-  The Progressive Corporation is one of the largest providers of car insurance in
-  the United States, also offering personal and commercial auto, home, renters, boat,
-  motorcycle, and other insurance products.
+common:
+  - type: Portal
+    url: https://developer.progressive.com/s/
+  - type: Website
+    url: https://www.progressive.com/
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com
