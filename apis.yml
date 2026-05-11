@@ -66,6 +66,15 @@ common:
     url: https://developer.progressive.com/s/
   - type: Website
     url: https://www.progressive.com/
+  - type: Integrations
+    url: https://www.progressive.com/partners/
+integrations:
+  - name: Progressive Insurance logo, Home page
+  - name: Facebook
+  - name: Instagram
+  - name: YouTube
+  - name: TikTok
+  - name: X, Formerly Twitter
 maintainers:
   - FN: API Evangelist
     email: info@apievangelist.com
