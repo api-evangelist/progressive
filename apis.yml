@@ -6,7 +6,7 @@ description: >-
   motorcycle, and other insurance products. Progressive operates a developer portal
   at developer.progressive.com offering APIs for auto insurance quoting, certificate
   of insurance generation, and agent portal integrations.
-type: Contract
+kind: contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Auto Insurance
