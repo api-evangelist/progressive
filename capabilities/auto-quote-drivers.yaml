@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Progressive Auto Quote API — Drivers
+  description: 'Progressive Auto Quote API — Drivers. 1 operations. Lead operation: List drivers. Self-contained Naftiko capability
+    covering one Progressive business surface.'
+  tags:
+  - Progressive
+  - Drivers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PROGRESSIVE_API_KEY: PROGRESSIVE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: auto-quote-drivers
+    baseUri: https://api.progressive.com
+    description: Progressive Auto Quote API — Drivers business capability. Self-contained, no shared references.
+    resources:
+    - name: drivers
+      path: /drivers
+      operations:
+      - name: listdrivers
+        method: GET
+        description: List drivers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.PROGRESSIVE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: auto-quote-drivers-rest
+    port: 8080
+    description: REST adapter for Progressive Auto Quote API — Drivers. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/drivers
+      name: drivers
+      description: REST surface for drivers.
+      operations:
+      - method: GET
+        name: listdrivers
+        description: List drivers
+        call: auto-quote-drivers.listdrivers
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: auto-quote-drivers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Progressive Auto Quote API — Drivers. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-drivers
+      description: List drivers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: auto-quote-drivers.listdrivers
+      outputParameters:
+      - type: object
+        mapping: $.

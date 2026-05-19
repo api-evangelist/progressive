@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Progressive Auto Quote API — Vehicles
+  description: 'Progressive Auto Quote API — Vehicles. 1 operations. Lead operation: List vehicles. Self-contained Naftiko
+    capability covering one Progressive business surface.'
+  tags:
+  - Progressive
+  - Vehicles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PROGRESSIVE_API_KEY: PROGRESSIVE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: auto-quote-vehicles
+    baseUri: https://api.progressive.com
+    description: Progressive Auto Quote API — Vehicles business capability. Self-contained, no shared references.
+    resources:
+    - name: vehicles
+      path: /vehicles
+      operations:
+      - name: listvehicles
+        method: GET
+        description: List vehicles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.PROGRESSIVE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: auto-quote-vehicles-rest
+    port: 8080
+    description: REST adapter for Progressive Auto Quote API — Vehicles. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/vehicles
+      name: vehicles
+      description: REST surface for vehicles.
+      operations:
+      - method: GET
+        name: listvehicles
+        description: List vehicles
+        call: auto-quote-vehicles.listvehicles
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: auto-quote-vehicles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Progressive Auto Quote API — Vehicles. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-vehicles
+      description: List vehicles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: auto-quote-vehicles.listvehicles
+      outputParameters:
+      - type: object
+        mapping: $.
