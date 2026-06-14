@@ -1,0 +1,761 @@
+"""
+Progressive Insurance GraphQL Schema
+Conceptual schema covering auto, home, renters, motorcycle, boat, RV,
+commercial policies, quoting, claims, telematics (Snapshot), and agent portals.
+"""
+
+# ─── Scalars ────────────────────────────────────────────────────────────────
+
+scalar Date
+scalar DateTime
+scalar Decimal
+scalar JSON
+
+# ─── Enums ──────────────────────────────────────────────────────────────────
+
+enum PolicyStatus {
+  ACTIVE
+  CANCELLED
+  EXPIRED
+  PENDING
+  SUSPENDED
+}
+
+enum PolicyType {
+  AUTO
+  HOME
+  RENTERS
+  MOTORCYCLE
+  BOAT
+  RV
+  COMMERCIAL
+}
+
+enum ClaimStatusCode {
+  REPORTED
+  UNDER_INVESTIGATION
+  ESTIMATE_PENDING
+  IN_REPAIR
+  CLOSED
+  DENIED
+  PAID
+}
+
+enum PaymentFrequency {
+  MONTHLY
+  QUARTERLY
+  SEMI_ANNUAL
+  ANNUAL
+}
+
+enum VehicleUse {
+  PERSONAL
+  BUSINESS
+  RIDESHARE
+  FARM
+}
+
+enum DriveEventType {
+  HARD_BRAKE
+  RAPID_ACCELERATION
+  HARD_CORNER
+  NIGHT_DRIVING
+  PHONE_USE
+}
+
+enum DiscountType {
+  MULTI_POLICY
+  MULTI_CAR
+  GOOD_DRIVER
+  SNAPSHOT
+  HOMEOWNER
+  CONTINUOUS_INSURANCE
+  PAPERLESS
+  AUTOPAY
+  PAID_IN_FULL
+  GOOD_STUDENT
+  TEEN_DRIVER
+  LOYALTY
+}
+
+enum CoverageType {
+  BODILY_INJURY
+  PROPERTY_DAMAGE
+  COLLISION
+  COMPREHENSIVE
+  UNINSURED_MOTORIST
+  MEDICAL_PAYMENTS
+  PERSONAL_INJURY_PROTECTION
+  ROADSIDE_ASSISTANCE
+  RENTAL_REIMBURSEMENT
+  GAP
+  LOAN_LEASE_PAYOFF
+}
+
+# ─── Policy Types ────────────────────────────────────────────────────────────
+
+type Policy {
+  id: ID!
+  policyNumber: String!
+  type: PolicyType!
+  status: PolicyStatus!
+  effectiveDate: Date!
+  expirationDate: Date!
+  term: PolicyTerm!
+  namedInsureds: [NamedInsured!]!
+  policyHolder: PolicyHolder!
+  coverages: [Coverage!]!
+  premium: Premium!
+  endorsements: [Endorsement!]
+  discounts: [Discount!]
+  agentId: ID
+  agent: Agent
+  details: PolicyDetails
+  createdAt: DateTime!
+  modifiedAt: DateTime!
+}
+
+type AutoPolicy {
+  id: ID!
+  policy: Policy!
+  vehicles: [Vehicle!]!
+  drivers: [AdditionalDriver!]
+  snapshot: Snapshot
+}
+
+type HomePolicy {
+  id: ID!
+  policy: Policy!
+  propertyAddress: Address!
+  constructionYear: Int
+  squareFootage: Int
+  homeOwner: HomeOwner!
+  dwellingCoverage: Decimal
+  personalPropertyCoverage: Decimal
+  liabilityCoverage: Decimal
+}
+
+type RentersPolicy {
+  id: ID!
+  policy: Policy!
+  rentalAddress: Address!
+  personalPropertyCoverage: Decimal
+  liabilityCoverage: Decimal
+}
+
+type MotorcyclePolicy {
+  id: ID!
+  policy: Policy!
+  motorcycle: Vehicle!
+  riderExperience: Int
+}
+
+type BoatPolicy {
+  id: ID!
+  policy: Policy!
+  vessel: Vessel!
+  harborLocation: String
+  navigationArea: String
+}
+
+type RVPolicy {
+  id: ID!
+  policy: Policy!
+  rv: Vehicle!
+  fullTimer: Boolean
+}
+
+type CommercialPolicy {
+  id: ID!
+  policy: Policy!
+  businessName: String!
+  businessType: String
+  fleetVehicles: [Vehicle!]
+  employeeCount: Int
+}
+
+type PolicyDetails {
+  id: ID!
+  policyId: ID!
+  billingAddress: Address
+  mailingAddress: Address
+  paymentFrequency: PaymentFrequency
+  nextPaymentDate: Date
+  nextPaymentAmount: Decimal
+  documentDelivery: String
+}
+
+type PolicyTerm {
+  termLength: Int!
+  termUnit: String!
+  startDate: Date!
+  endDate: Date!
+}
+
+type Endorsement {
+  id: ID!
+  code: String!
+  description: String!
+  effectiveDate: Date
+  premium: Decimal
+}
+
+# ─── People ──────────────────────────────────────────────────────────────────
+
+type NamedInsured {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  dateOfBirth: Date
+  address: Address!
+  email: String
+  phone: String
+}
+
+type AdditionalDriver {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  dateOfBirth: Date!
+  licenseNumber: String
+  licenseState: String
+  relationship: String
+  driverRecord: DriverRecord
+}
+
+type PolicyHolder {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  phone: String
+  address: Address!
+  dateOfBirth: Date
+}
+
+# ─── Vehicle & VIN ───────────────────────────────────────────────────────────
+
+type Vehicle {
+  id: ID!
+  vin: VIN!
+  make: AutoMake!
+  model: AutoModel!
+  year: Int!
+  trim: String
+  color: String
+  primaryUse: VehicleUse
+  annualMileage: Int
+  safetyFeatures: [SafetyFeature!]
+  crashPrevention: [CrashPrevention!]
+  driveHistory: DriveHistory
+}
+
+type VIN {
+  number: String!
+  decoded: VehicleInfo
+}
+
+type VehicleInfo {
+  make: String!
+  model: String!
+  year: Int!
+  bodyStyle: String
+  engineSize: String
+  fuelType: String
+  doors: Int
+  msrp: Decimal
+}
+
+type AutoMake {
+  id: ID!
+  name: String!
+  country: String
+}
+
+type AutoModel {
+  id: ID!
+  name: String!
+  makeId: ID!
+  make: AutoMake!
+  years: [Int!]
+}
+
+type Vessel {
+  id: ID!
+  hullId: String
+  make: String!
+  model: String!
+  year: Int!
+  length: Decimal
+  value: Decimal
+  engineType: String
+  horsepower: Int
+}
+
+# ─── Driving History & MVR ───────────────────────────────────────────────────
+
+type DriveHistory {
+  driverId: ID!
+  mvr: MVR
+  incidents: [MVREvent!]
+  yearsLicensed: Int
+}
+
+type MVR {
+  id: ID!
+  driverId: ID!
+  reportDate: Date!
+  state: String!
+  licenseStatus: String
+  events: [MVREvent!]
+}
+
+type MVREvent {
+  id: ID!
+  eventDate: Date!
+  type: String!
+  description: String!
+  points: Int
+  convictionState: String
+}
+
+type DriverRecord {
+  accidentFree: Boolean
+  violationFree: Boolean
+  accidentCount: Int
+  violationCount: Int
+  yearsCleanRecord: Int
+}
+
+type SafetyFeature {
+  code: String!
+  description: String!
+  discountApplies: Boolean
+}
+
+type CrashPrevention {
+  code: String!
+  system: String!
+  description: String!
+}
+
+# ─── Coverage & Premium ──────────────────────────────────────────────────────
+
+type Coverage {
+  id: ID!
+  type: CoverageType!
+  description: String!
+  limits: CoverageLimits
+  deductible: Deductible
+  premium: Decimal
+  isRequired: Boolean
+}
+
+type CoverageLimits {
+  perPerson: Decimal
+  perOccurrence: Decimal
+  propertyDamage: Decimal
+}
+
+type BodilyInjury {
+  perPersonLimit: Decimal!
+  perOccurrenceLimit: Decimal!
+  premium: Decimal
+}
+
+type PropertyDamage {
+  limit: Decimal!
+  premium: Decimal
+}
+
+type Collision {
+  deductible: Deductible!
+  premium: Decimal
+}
+
+type Comprehensive {
+  deductible: Deductible!
+  premium: Decimal
+}
+
+type UninsuredMotorist {
+  perPersonLimit: Decimal
+  perOccurrenceLimit: Decimal
+  propertyDamageLimit: Decimal
+  premium: Decimal
+}
+
+type MedicalPayments {
+  limit: Decimal!
+  premium: Decimal
+}
+
+type PersonalInjuryProtection {
+  limit: Decimal!
+  deductible: Deductible
+  premium: Decimal
+}
+
+type Deductible {
+  amount: Decimal!
+  waivable: Boolean
+}
+
+type Premium {
+  totalAnnual: Decimal!
+  totalTerm: Decimal!
+  monthlyInstallment: Decimal
+  breakdown: [PremiumBreakdown!]
+}
+
+type PremiumBreakdown {
+  coverageType: CoverageType!
+  amount: Decimal!
+}
+
+# ─── Quoting & Discounts ─────────────────────────────────────────────────────
+
+type RateQuote {
+  id: ID!
+  quoteNumber: String!
+  createdAt: DateTime!
+  expiresAt: DateTime!
+  policyType: PolicyType!
+  applicant: PolicyHolder!
+  vehicles: [Vehicle!]
+  coverages: [Coverage!]!
+  discounts: [Discount!]
+  estimatedPremium: Premium!
+  bindable: Boolean!
+}
+
+type Discount {
+  id: ID!
+  type: DiscountType!
+  description: String!
+  percentage: Decimal
+  amount: Decimal
+  applied: Boolean!
+}
+
+type HomeOwner {
+  ownedSince: Date
+  mortgageHolder: String
+  constructionType: String
+  roofType: String
+  roofYear: Int
+  alarmSystem: Boolean
+  sprinklerSystem: Boolean
+}
+
+type MultiPolicy {
+  policyIds: [ID!]!
+  discountPercentage: Decimal
+}
+
+type MultiCar {
+  vehicleIds: [ID!]!
+  discountPercentage: Decimal
+}
+
+type GoodDriver {
+  yearsClean: Int!
+  discountPercentage: Decimal!
+}
+
+type SnapshotDiscount {
+  enrollmentDate: Date
+  measurementPeriodDays: Int
+  finalScore: Int
+  discountPercentage: Decimal
+}
+
+# ─── Snapshot / Telematics ───────────────────────────────────────────────────
+
+type Snapshot {
+  id: ID!
+  vehicleId: ID!
+  enrollmentDate: Date!
+  active: Boolean!
+  deviceType: String
+  driveScore: DriveScore
+  trips: [TripData!]
+}
+
+type DriveScore {
+  overall: Int!
+  braking: Int
+  time: Int
+  mileage: Int
+  lastUpdated: DateTime
+}
+
+type TripData {
+  id: ID!
+  snapshotId: ID!
+  startTime: DateTime!
+  endTime: DateTime!
+  distanceMiles: Decimal
+  durationMinutes: Int
+  fuelEconomy: FuelEconomy
+  events: [DriveEvent!]
+}
+
+type FuelEconomy {
+  mpg: Decimal
+  fuelUsedGallons: Decimal
+}
+
+type IdleTime {
+  tripId: ID!
+  totalIdleMinutes: Int
+  idleEvents: Int
+}
+
+type HardBrake {
+  tripId: ID!
+  timestamp: DateTime!
+  severity: Int
+  speedMph: Decimal
+}
+
+type DriveEvent {
+  id: ID!
+  type: DriveEventType!
+  timestamp: DateTime!
+  severity: Int
+  latitude: Decimal
+  longitude: Decimal
+}
+
+# ─── Claims ──────────────────────────────────────────────────────────────────
+
+type Claim {
+  id: ID!
+  claimNumber: String!
+  policyId: ID!
+  policy: Policy!
+  status: ClaimStatus!
+  lossDate: Date!
+  reportedDate: DateTime!
+  description: String
+  adjuster: ClaimAdjuster
+  estimates: [Estimate!]
+  payments: [ClaimPayment!]
+  repairShop: RepairShop
+  rental: Rental
+}
+
+type ClaimStatus {
+  code: ClaimStatusCode!
+  description: String!
+  updatedAt: DateTime!
+}
+
+type ClaimPayment {
+  id: ID!
+  claimId: ID!
+  amount: Decimal!
+  paymentDate: Date!
+  payee: String!
+  description: String
+}
+
+type ClaimAdjuster {
+  id: ID!
+  name: String!
+  phone: String
+  email: String
+  assignedDate: Date
+}
+
+type RepairShop {
+  id: ID!
+  name: String!
+  address: Address!
+  phone: String
+  progressive_certified: Boolean
+  estimatedCompletionDate: Date
+}
+
+type Estimate {
+  id: ID!
+  claimId: ID!
+  estimateDate: Date!
+  totalAmount: Decimal!
+  laborAmount: Decimal
+  partsAmount: Decimal
+  approved: Boolean
+}
+
+type Rental {
+  id: ID!
+  claimId: ID!
+  company: String
+  startDate: Date
+  endDate: Date
+  dailyRate: Decimal
+  totalReimbursed: Decimal
+}
+
+# ─── Agent & Auth ────────────────────────────────────────────────────────────
+
+type Agent {
+  id: ID!
+  name: String!
+  licenseNumber: String
+  licenseState: String
+  phone: String
+  email: String
+  agency: Agency
+  location: Address
+}
+
+type Agency {
+  id: ID!
+  name: String!
+  address: Address!
+  phone: String
+  website: String
+}
+
+type AgentLocator {
+  agents: [Agent!]!
+  searchRadius: Int
+  searchLocation: Address
+  totalResults: Int
+}
+
+type APIKey {
+  id: ID!
+  key: String!
+  name: String!
+  createdAt: DateTime!
+  expiresAt: DateTime
+  scopes: [String!]
+  active: Boolean!
+}
+
+type Token {
+  accessToken: String!
+  tokenType: String!
+  expiresIn: Int!
+  scope: String
+}
+
+# ─── Shared Types ────────────────────────────────────────────────────────────
+
+type Address {
+  street1: String!
+  street2: String
+  city: String!
+  state: String!
+  zip: String!
+  country: String
+}
+
+# ─── Root Operations ─────────────────────────────────────────────────────────
+
+type Query {
+  policy(id: ID!): Policy
+  policies(holderId: ID, status: PolicyStatus, type: PolicyType): [Policy!]!
+  autoPolicy(id: ID!): AutoPolicy
+  homePolicy(id: ID!): HomePolicy
+  rentersPolicy(id: ID!): RentersPolicy
+  motorcyclePolicy(id: ID!): MotorcyclePolicy
+  boatPolicy(id: ID!): BoatPolicy
+  rvPolicy(id: ID!): RVPolicy
+  commercialPolicy(id: ID!): CommercialPolicy
+
+  rateQuote(quoteNumber: String!): RateQuote
+  rateQuotes(applicantEmail: String): [RateQuote!]!
+
+  vehicle(id: ID!): Vehicle
+  decodeVIN(vin: String!): VehicleInfo
+
+  claim(id: ID!): Claim
+  claims(policyId: ID, status: ClaimStatusCode): [Claim!]!
+
+  snapshot(vehicleId: ID!): Snapshot
+  driveScore(snapshotId: ID!): DriveScore
+
+  agent(id: ID!): Agent
+  agentLocator(zip: String!, radiusMiles: Int): AgentLocator
+
+  mvr(driverId: ID!): MVR
+}
+
+type Mutation {
+  createRateQuote(input: RateQuoteInput!): RateQuote!
+  bindPolicy(quoteId: ID!, paymentMethod: String!): Policy!
+  cancelPolicy(policyId: ID!, reason: String): Policy!
+  addVehicle(policyId: ID!, vehicleInput: VehicleInput!): AutoPolicy!
+  removeVehicle(policyId: ID!, vehicleId: ID!): AutoPolicy!
+  addDriver(policyId: ID!, driverInput: DriverInput!): AutoPolicy!
+  fileClam(policyId: ID!, input: ClaimInput!): Claim!
+  enrollSnapshot(vehicleId: ID!): Snapshot!
+  unenrollSnapshot(snapshotId: ID!): Snapshot!
+  generateAPIKey(name: String!, scopes: [String!]!): APIKey!
+  revokeAPIKey(keyId: ID!): Boolean!
+  requestToken(clientId: String!, clientSecret: String!): Token!
+}
+
+type Subscription {
+  claimStatusChanged(claimId: ID!): ClaimStatus!
+  snapshotScoreUpdated(snapshotId: ID!): DriveScore!
+  policyStatusChanged(policyId: ID!): Policy!
+}
+
+# ─── Input Types ─────────────────────────────────────────────────────────────
+
+input RateQuoteInput {
+  policyType: PolicyType!
+  applicant: PolicyHolderInput!
+  vehicles: [VehicleInput!]
+  coverages: [CoverageInput!]
+}
+
+input PolicyHolderInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  phone: String
+  dateOfBirth: Date!
+  address: AddressInput!
+}
+
+input VehicleInput {
+  vin: String!
+  primaryUse: VehicleUse
+  annualMileage: Int
+}
+
+input DriverInput {
+  firstName: String!
+  lastName: String!
+  dateOfBirth: Date!
+  licenseNumber: String!
+  licenseState: String!
+  relationship: String
+}
+
+input CoverageInput {
+  type: CoverageType!
+  perPersonLimit: Decimal
+  perOccurrenceLimit: Decimal
+  deductibleAmount: Decimal
+}
+
+input ClaimInput {
+  lossDate: Date!
+  description: String!
+  vehicleId: ID
+}
+
+input AddressInput {
+  street1: String!
+  street2: String
+  city: String!
+  state: String!
+  zip: String!
+}
