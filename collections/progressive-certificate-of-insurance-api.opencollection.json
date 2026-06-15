@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Progressive Certificate of Insurance API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Certificates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List certificates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.progressive.com/certificates"
+          },
+          "docs": "Retrieves a list of certificates of insurance associated with the authenticated agent or policyholder account."
+        },
+        {
+          "info": {
+            "name": "Create a certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.progressive.com/certificates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates a new certificate of insurance for a specified policy and certificate holder."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.progressive.com/policies"
+          },
+          "docs": "Retrieves a list of active policies eligible for certificate generation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

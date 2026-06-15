@@ -1,50 +1,73 @@
 # Progressive (progressive)
-Progressive Corporation is one of the largest providers of auto and home insurance in the United States. Progressive operates a developer portal at developer.progressive.com offering APIs for auto insurance quoting, certificate of insurance generation, and agent portal integrations.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/progressive/refs/heads/main/apis.yml)
+The Progressive Corporation is one of the largest providers of car insurance in the United States, also offering personal and commercial auto, home, renters, boat, motorcycle, and other insurance products. Progressive operates a developer portal at developer.progressive.com offering APIs for auto insurance quoting, certificate of insurance generation, and agent portal integrations.
 
-## Scope
-- **Type:** Contract
-- **Position:** Consuming
-- **Access:** 3rd-Party
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/progressive/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/progressive/refs/heads/main/apis.yml)
 
-## Tags:
- - Insurance, Auto Insurance, Quoting, Embedded Insurance
+## Tags
+
+- Auto Insurance
+- Commercial Insurance
+- Embedded Insurance
+- Insurance
+- Quoting
 
 ## Timestamps
+
 - **Created:** 2026-03-21
-- **Modified:** 2026-04-28
+- **Modified:** 2026-05-19
 
 ## APIs
 
-### Auto Quote API
-The Progressive Auto Quote API enables partners to embed auto insurance quoting capabilities directly into their applications. Partners can return estimated auto insurance rates with customizable options including SDK and headless API integration.
+### Progressive Auto Quote API
 
-**Human URL:** [https://developer.progressive.com/s/clautoquoteapidoc](https://developer.progressive.com/s/clautoquoteapidoc)
+The Progressive Auto Quote API enables partners to embed auto insurance quoting capabilities directly into their applications and platforms. Through the Progressive Developer Portal, partners can access APIs to return estimated auto insurance rates with customizable options including SDK and headless API integration. The API supports both non-production and production environments for testing and live deployments.
 
-#### Tags:
- - Insurance, Auto Insurance, Quoting, Embedded Insurance
+- **Human URL:** [https://developer.progressive.com/s/clautoquoteapidoc](https://developer.progressive.com/s/clautoquoteapidoc)
+- **Base URL:** `https://api.progressive.com`
+
+#### Tags
+
+- Auto Insurance
+- Embedded Insurance
+- Insurance
+- Quoting
 
 #### Properties
+
 - [Documentation](https://developer.progressive.com/s/clautoquoteapidoc)
-- [OpenAPI](openapi/progressive-auto-quote-api-openapi.yml)
+- [OpenAPI](openapi/progressive-auto-quote-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/progressive-auto-quote-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/progressive-auto-quote-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
-### Certificate of Insurance API
-The Progressive Certificate of Insurance API provides programmatic access to generate and manage certificates of insurance for commercial policyholders, enabling partners and agents to automate the certificate issuance process.
+### Progressive Certificate of Insurance API
 
-**Human URL:** [https://developer.progressive.com/s/](https://developer.progressive.com/s/)
+The Progressive Certificate of Insurance API provides programmatic access to generate and manage certificates of insurance for commercial policyholders. This API enables partners and agents to automate the certificate issuance process, reducing manual effort and improving turnaround times for proof of insurance documentation.
 
-#### Tags:
- - Insurance, Certificates, Commercial Insurance
+- **Human URL:** [https://developer.progressive.com/s/](https://developer.progressive.com/s/)
+- **Base URL:** `https://api.progressive.com`
+
+#### Tags
+
+- Certificates
+- Commercial Insurance
+- Insurance
 
 #### Properties
+
 - [Documentation](https://developer.progressive.com/s/)
-- [OpenAPI](openapi/progressive-certificate-of-insurance-api-openapi.yml)
+- [OpenAPI](openapi/progressive-certificate-of-insurance-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/progressive-certificate-of-insurance-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/progressive-certificate-of-insurance-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ## Common Properties
+
+- [LinkedIn](https://www.linkedin.com/company/the-progressive-corporation)
 - [Portal](https://developer.progressive.com/s/)
 - [Website](https://www.progressive.com/)
+- [Integrations](https://www.progressive.com/partners/)
 
 ## Maintainers
+
 **FN:** API Evangelist
 **Email:** info@apievangelist.com

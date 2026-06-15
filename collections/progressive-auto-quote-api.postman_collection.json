@@ -1,0 +1,309 @@
+{
+  "item": [
+    {
+      "id": "fbd0b1f6-9e3f-4818-bf11-bba90890fee4",
+      "name": "Drivers",
+      "description": {
+        "content": "Manage driver profiles for quoting.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c2fd9e17-beae-4985-ad47-58bd6dab9464",
+          "name": "List drivers",
+          "request": {
+            "name": "List drivers",
+            "description": {
+              "content": "Retrieves a list of drivers associated with the current quoting session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "drivers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d25e359-6923-4d48-87de-28a861f78ecc",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "drivers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "bb01e69d-84e6-4c58-91e1-31103ca8c13f",
+      "name": "Quotes",
+      "description": {
+        "content": "Create and retrieve auto insurance quotes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c9480435-572e-4c1a-9a08-92f085a7e93c",
+          "name": "List quotes",
+          "request": {
+            "name": "List quotes",
+            "description": {
+              "content": "Retrieves a list of auto insurance quotes previously created for the authenticated partner session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "quotes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "79acd5cc-9aee-4493-83eb-44f9838f793f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8b0b2d8-aba2-453e-8c6d-409bb3519f68",
+          "name": "Create a quote",
+          "request": {
+            "name": "Create a quote",
+            "description": {
+              "content": "Creates a new auto insurance quote based on the provided driver, vehicle, and coverage information. Returns estimated rates and coverage options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "quotes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"drivers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"vehicles\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"coverageOptions\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f7bec256-28cf-4038-b0d9-b6eced8dc80b",
+              "name": "Quote created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"drivers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"vehicles\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"coverageOptions\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "03b2b8ed-2438-41ca-a342-fa950c678df9",
+      "name": "Vehicles",
+      "description": {
+        "content": "Manage vehicle information for quoting.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9da0080b-0e83-4f81-8fde-f0d80876c238",
+          "name": "List vehicles",
+          "request": {
+            "name": "List vehicles",
+            "description": {
+              "content": "Retrieves a list of vehicles associated with the current quoting session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vehicles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cfff0d0f-031f-4134-8953-b04742dadf60",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.progressive.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "999a63f7-57e3-4082-a3e7-695c74c38a44",
+    "name": "Progressive Auto Quote API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Progressive Auto Quote API enables partners to embed auto insurance quoting capabilities directly into their applications. Partners can return estimated auto insurance rates with customizable options including SDK and headless API integration. The API supports both non-production and production environments for testing and live deployments.",
+      "type": "text/plain"
+    }
+  }
+}

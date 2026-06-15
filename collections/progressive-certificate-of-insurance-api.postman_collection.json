@@ -1,0 +1,240 @@
+{
+  "item": [
+    {
+      "id": "4189dcab-cb04-4e7f-adcb-154c98c6c150",
+      "name": "Certificates",
+      "description": {
+        "content": "Generate and manage certificates of insurance.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5dece7fc-47e1-4ac2-a2be-12398185a5f4",
+          "name": "List certificates",
+          "request": {
+            "name": "List certificates",
+            "description": {
+              "content": "Retrieves a list of certificates of insurance associated with the authenticated agent or policyholder account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "certificates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "639b9f7c-472f-4a2a-8860-55e0ca07a189",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "211fd44f-3790-4569-acf8-36c81d0bdd1f",
+          "name": "Create a certificate",
+          "request": {
+            "name": "Create a certificate",
+            "description": {
+              "content": "Generates a new certificate of insurance for a specified policy and certificate holder.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "certificates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"policyNumber\": \"<string>\",\n  \"certificateHolder\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d6d4fd1e-2aef-4dd6-b4b9-cf7a029690eb",
+              "name": "Certificate created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policyNumber\": \"<string>\",\n  \"certificateHolder\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fa67efae-ba93-4609-8b96-4a53a00e86cd",
+      "name": "Policies",
+      "description": {
+        "content": "Retrieve policy information for certificate generation.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "baeb117c-fd6d-45f1-8762-c6598f02e9ff",
+          "name": "List policies",
+          "request": {
+            "name": "List policies",
+            "description": {
+              "content": "Retrieves a list of active policies eligible for certificate generation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "policies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e6f2c6c-f724-4609-93aa-b76110d0c2b2",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.progressive.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e768dc44-155a-48b3-998f-1be5261e545b",
+    "name": "Progressive Certificate of Insurance API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Progressive Certificate of Insurance API provides programmatic access to generate and manage certificates of insurance for commercial policyholders. This API enables partners and agents to automate the certificate issuance process and manage proof of insurance documentation.",
+      "type": "text/plain"
+    }
+  }
+}
