@@ -6,7 +6,7 @@ description: The Progressive Corporation is one of the largest providers of car 
   portal at developer.progressive.com offering APIs for auto insurance quoting, certificate
   of insurance generation, and agent portal integrations.
 kind: contract
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Auto Insurance
 - Commercial Insurance
@@ -26,7 +26,7 @@ apis:
   - Embedded Insurance
   - Insurance
   - Quoting
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://api.progressive.com
   humanURL: https://developer.progressive.com/s/clautoquoteapidoc
   properties:
@@ -48,7 +48,7 @@ apis:
   - Certificates
   - Commercial Insurance
   - Insurance
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://api.progressive.com
   humanURL: https://developer.progressive.com/s/
   properties:
