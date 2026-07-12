@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/progressive-auto-quote-api-openapi.yml, openapi/progressive-certificate-of-insurance-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  sources:
+  - openapi/progressive-auto-quote-api-openapi.yml
+  - openapi/progressive-certificate-of-insurance-api-openapi.yml

@@ -61,6 +61,10 @@ apis:
     This API enables partners and agents to automate the certificate issuance process,
     reducing manual effort and improving turnaround times for proof of insurance documentation.
 common:
+- type: DomainSecurity
+  url: security/progressive-domain-security.yml
+- type: Authentication
+  url: authentication/progressive-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/the-progressive-corporation
 - type: Portal
