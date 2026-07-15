@@ -61,6 +61,8 @@ apis:
     This API enables partners and agents to automate the certificate issuance process,
     reducing manual effort and improving turnaround times for proof of insurance documentation.
 common:
+- type: AgenticAccess
+  url: agentic-access/progressive-agentic-access.yml
 - type: DomainSecurity
   url: security/progressive-domain-security.yml
 - type: Authentication
