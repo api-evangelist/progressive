@@ -1,0 +1,46 @@
+openapi: 3.1.0
+info:
+  title: Progressive Auto Quote Certificates API
+  description: The Progressive Auto Quote API enables partners to embed auto insurance quoting capabilities directly into their applications. Partners can return estimated auto insurance rates with customizable options including SDK and headless API integration. The API supports both non-production and production environments for testing and live deployments.
+  version: '1.0'
+servers:
+- url: https://api.progressive.com
+tags:
+- name: Certificates
+  description: Generate and manage certificates of insurance.
+paths:
+  /certificates:
+    get:
+      operationId: listCertificates
+      summary: List certificates
+      description: Retrieves a list of certificates of insurance associated with the authenticated agent or policyholder account.
+      tags:
+      - Certificates
+      responses:
+        '200':
+          description: Success
+    post:
+      operationId: createCertificate
+      summary: Create a certificate
+      description: Generates a new certificate of insurance for a specified policy and certificate holder.
+      tags:
+      - Certificates
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                policyNumber:
+                  type: string
+                certificateHolder:
+                  type: object
+      responses:
+        '201':
+          description: Certificate created successfully
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

@@ -1,0 +1,26 @@
+openapi: 3.1.0
+info:
+  title: Progressive Auto Quote Certificates Policies API
+  description: The Progressive Auto Quote API enables partners to embed auto insurance quoting capabilities directly into their applications. Partners can return estimated auto insurance rates with customizable options including SDK and headless API integration. The API supports both non-production and production environments for testing and live deployments.
+  version: '1.0'
+servers:
+- url: https://api.progressive.com
+tags:
+- name: Policies
+  description: Retrieve policy information for certificate generation.
+paths:
+  /policies:
+    get:
+      operationId: listPolicies
+      summary: List policies
+      description: Retrieves a list of active policies eligible for certificate generation.
+      tags:
+      - Policies
+      responses:
+        '200':
+          description: Success
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

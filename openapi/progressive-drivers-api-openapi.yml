@@ -1,0 +1,26 @@
+openapi: 3.1.0
+info:
+  title: Progressive Auto Quote Certificates Drivers API
+  description: The Progressive Auto Quote API enables partners to embed auto insurance quoting capabilities directly into their applications. Partners can return estimated auto insurance rates with customizable options including SDK and headless API integration. The API supports both non-production and production environments for testing and live deployments.
+  version: '1.0'
+servers:
+- url: https://api.progressive.com
+tags:
+- name: Drivers
+  description: Manage driver profiles for quoting.
+paths:
+  /drivers:
+    get:
+      operationId: listDrivers
+      summary: List drivers
+      description: Retrieves a list of drivers associated with the current quoting session.
+      tags:
+      - Drivers
+      responses:
+        '200':
+          description: Success
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
