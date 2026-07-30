@@ -6,7 +6,20 @@ description: The Progressive Corporation is one of the largest providers of car 
   portal at developer.progressive.com offering APIs for auto insurance quoting, certificate
   of insurance generation, and agent portal integrations.
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/progressive.png
 tags:
 - Auto Insurance
 - Commercial Insurance
@@ -19,47 +32,86 @@ created: '2026-03-21'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: progressive:auto-quote-api
-  name: Progressive Auto Quote API
-  tags:
-  - Auto Insurance
-  - Embedded Insurance
-  - Insurance
-  - Quoting
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  baseURL: https://api.progressive.com
+- aid: progressive:progressive-certificates-api
+  name: Progressive Certificates API
+  description: Generate and manage certificates of insurance.
   humanURL: https://developer.progressive.com/s/clautoquoteapidoc
-  properties:
-  - url: https://developer.progressive.com/s/clautoquoteapidoc
-    type: Documentation
-  - url: openapi/progressive-auto-quote-api-openapi.yml
-    type: OpenAPI
-  - url: graphql/progressive-graphql.md
-    type: GraphQL
-  description: The Progressive Auto Quote API enables partners to embed auto insurance
-    quoting capabilities directly into their applications and platforms. Through the
-    Progressive Developer Portal, partners can access APIs to return estimated auto
-    insurance rates with customizable options including SDK and headless API integration.
-    The API supports both non-production and production environments for testing and
-    live deployments.
-- aid: progressive:certificate-of-insurance-api
-  name: Progressive Certificate of Insurance API
+  baseURL: https://api.progressive.com
   tags:
   - Certificates
-  - Commercial Insurance
-  - Insurance
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  baseURL: https://api.progressive.com
-  humanURL: https://developer.progressive.com/s/
   properties:
-  - url: https://developer.progressive.com/s/
-    type: Documentation
-  - url: openapi/progressive-certificate-of-insurance-api-openapi.yml
-    type: OpenAPI
-  description: The Progressive Certificate of Insurance API provides programmatic
-    access to generate and manage certificates of insurance for commercial policyholders.
-    This API enables partners and agents to automate the certificate issuance process,
-    reducing manual effort and improving turnaround times for proof of insurance documentation.
+  - type: OpenAPI
+    url: openapi/progressive-certificates-api-openapi.yml
+  - type: Documentation
+    url: https://developer.progressive.com/s/clautoquoteapidoc
+  - type: GraphQL
+    url: graphql/progressive-graphql.md
+  - type: Documentation
+    url: https://developer.progressive.com/s/
+- aid: progressive:progressive-drivers-api
+  name: Progressive Drivers API
+  description: Manage driver profiles for quoting.
+  humanURL: https://developer.progressive.com/s/clautoquoteapidoc
+  baseURL: https://api.progressive.com
+  tags:
+  - Drivers
+  properties:
+  - type: OpenAPI
+    url: openapi/progressive-drivers-api-openapi.yml
+  - type: Documentation
+    url: https://developer.progressive.com/s/clautoquoteapidoc
+  - type: GraphQL
+    url: graphql/progressive-graphql.md
+  - type: Documentation
+    url: https://developer.progressive.com/s/
+- aid: progressive:progressive-policies-api
+  name: Progressive Policies API
+  description: Retrieve policy information for certificate generation.
+  humanURL: https://developer.progressive.com/s/clautoquoteapidoc
+  baseURL: https://api.progressive.com
+  tags:
+  - Policies
+  properties:
+  - type: OpenAPI
+    url: openapi/progressive-policies-api-openapi.yml
+  - type: Documentation
+    url: https://developer.progressive.com/s/clautoquoteapidoc
+  - type: GraphQL
+    url: graphql/progressive-graphql.md
+  - type: Documentation
+    url: https://developer.progressive.com/s/
+- aid: progressive:progressive-quotes-api
+  name: Progressive Quotes API
+  description: Create and retrieve auto insurance quotes.
+  humanURL: https://developer.progressive.com/s/clautoquoteapidoc
+  baseURL: https://api.progressive.com
+  tags:
+  - Quotes
+  properties:
+  - type: OpenAPI
+    url: openapi/progressive-quotes-api-openapi.yml
+  - type: Documentation
+    url: https://developer.progressive.com/s/clautoquoteapidoc
+  - type: GraphQL
+    url: graphql/progressive-graphql.md
+  - type: Documentation
+    url: https://developer.progressive.com/s/
+- aid: progressive:progressive-vehicles-api
+  name: Progressive Vehicles API
+  description: Manage vehicle information for quoting.
+  humanURL: https://developer.progressive.com/s/clautoquoteapidoc
+  baseURL: https://api.progressive.com
+  tags:
+  - Vehicles
+  properties:
+  - type: OpenAPI
+    url: openapi/progressive-vehicles-api-openapi.yml
+  - type: Documentation
+    url: https://developer.progressive.com/s/clautoquoteapidoc
+  - type: GraphQL
+    url: graphql/progressive-graphql.md
+  - type: Documentation
+    url: https://developer.progressive.com/s/
 common:
 - type: AgenticAccess
   url: agentic-access/progressive-agentic-access.yml
