@@ -1,0 +1,22 @@
+{
+  "provider": "progressive",
+  "sources": [
+    "progressive-certificates-api-openapi.yml",
+    "progressive-drivers-api-openapi.yml",
+    "progressive-policies-api-openapi.yml",
+    "progressive-quotes-api-openapi.yml",
+    "progressive-vehicles-api-openapi.yml"
+  ],
+  "outputs": [
+    "progressive-certificates-api-openapi.yml",
+    "progressive-drivers-api-openapi.yml",
+    "progressive-policies-api-openapi.yml",
+    "progressive-quotes-api-openapi.yml",
+    "progressive-vehicles-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,68 @@
+openapi: 3.1.0
+info:
+  title: Progressive Certificate of Insurance API
+  description: >-
+    The Progressive Certificate of Insurance API provides programmatic access
+    to generate and manage certificates of insurance for commercial
+    policyholders. This API enables partners and agents to automate the
+    certificate issuance process and manage proof of insurance documentation.
+  version: '1.0'
+servers:
+  - url: https://api.progressive.com
+tags:
+  - name: Certificates
+    description: Generate and manage certificates of insurance.
+  - name: Policies
+    description: Retrieve policy information for certificate generation.
+paths:
+  /certificates:
+    get:
+      operationId: listCertificates
+      summary: List certificates
+      description: >-
+        Retrieves a list of certificates of insurance associated with
+        the authenticated agent or policyholder account.
+      tags:
+        - Certificates
+      responses:
+        '200':
+          description: Success
+    post:
+      operationId: createCertificate
+      summary: Create a certificate
+      description: >-
+        Generates a new certificate of insurance for a specified policy
+        and certificate holder.
+      tags:
+        - Certificates
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                policyNumber:
+                  type: string
+                certificateHolder:
+                  type: object
+      responses:
+        '201':
+          description: Certificate created successfully
+  /policies:
+    get:
+      operationId: listPolicies
+      summary: List policies
+      description: >-
+        Retrieves a list of active policies eligible for certificate
+        generation.
+      tags:
+        - Policies
+      responses:
+        '200':
+          description: Success
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
