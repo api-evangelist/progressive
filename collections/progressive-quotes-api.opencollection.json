@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Progressive Auto Quote Certificates Quotes API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Quotes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List quotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.progressive.com/quotes"
+          },
+          "docs": "Retrieves a list of auto insurance quotes previously created for the authenticated partner session."
+        },
+        {
+          "info": {
+            "name": "Create a quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.progressive.com/quotes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new auto insurance quote based on the provided driver, vehicle, and coverage information. Returns estimated rates and coverage options."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

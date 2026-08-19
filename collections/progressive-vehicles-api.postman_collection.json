@@ -1,0 +1,90 @@
+{
+  "item": [
+    {
+      "id": "0ca4eddd-86d9-4003-ba62-d095b09e8316",
+      "name": "Vehicles",
+      "description": {
+        "content": "Manage vehicle information for quoting.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aeb3f2e4-19f7-4a6a-a43c-e6bf9a1fdb73",
+          "name": "List vehicles",
+          "request": {
+            "name": "List vehicles",
+            "description": {
+              "content": "Retrieves a list of vehicles associated with the current quoting session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vehicles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36c05c84-3672-4796-a862-1abe0e767707",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.progressive.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ea129348-1029-4a27-a7a7-670d09e8e2c6",
+    "name": "Progressive Auto Quote Certificates Vehicles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Progressive Auto Quote API enables partners to embed auto insurance quoting capabilities directly into their applications. Partners can return estimated auto insurance rates with customizable options including SDK and headless API integration. The API supports both non-production and production environments for testing and live deployments.",
+      "type": "text/plain"
+    }
+  }
+}

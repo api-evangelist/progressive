@@ -1,0 +1,171 @@
+{
+  "item": [
+    {
+      "id": "d7339838-cef3-4521-b6b7-ceb84c2f8d1b",
+      "name": "Quotes",
+      "description": {
+        "content": "Create and retrieve auto insurance quotes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b8c625d9-61b8-4f77-8e3b-c23724afb94f",
+          "name": "List quotes",
+          "request": {
+            "name": "List quotes",
+            "description": {
+              "content": "Retrieves a list of auto insurance quotes previously created for the authenticated partner session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "quotes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "14e5ed8d-217f-460f-9d5a-8da4a7849609",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70aa1c50-9a79-439b-9ec4-487419f6a180",
+          "name": "Create a quote",
+          "request": {
+            "name": "Create a quote",
+            "description": {
+              "content": "Creates a new auto insurance quote based on the provided driver, vehicle, and coverage information. Returns estimated rates and coverage options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "quotes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"drivers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"vehicles\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"coverageOptions\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0957dbe7-ee0b-4d3b-97b3-782e4d1d46a2",
+              "name": "Quote created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"drivers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"vehicles\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"coverageOptions\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.progressive.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8ceb4dfe-dbf4-4693-8aa2-f03f65ca137b",
+    "name": "Progressive Auto Quote Certificates Quotes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Progressive Auto Quote API enables partners to embed auto insurance quoting capabilities directly into their applications. Partners can return estimated auto insurance rates with customizable options including SDK and headless API integration. The API supports both non-production and production environments for testing and live deployments.",
+      "type": "text/plain"
+    }
+  }
+}
