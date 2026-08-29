@@ -6,6 +6,17 @@ description: The Progressive Corporation is one of the largest providers of car 
   portal at developer.progressive.com offering APIs for auto insurance quoting, certificate
   of insurance generation, and agent portal integrations.
 kind: contract
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
