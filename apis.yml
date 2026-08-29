@@ -124,6 +124,9 @@ apis:
   - type: Documentation
     url: https://developer.progressive.com/s/
 common:
+- type: CapabilityMap
+  url: capabilities/progressive-capability-edges.yml
+  name: Progressive Business Capability Map
 - type: AgenticAccess
   url: agentic-access/progressive-agentic-access.yml
 - type: DomainSecurity

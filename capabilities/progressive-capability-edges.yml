@@ -1,0 +1,26 @@
+slug: progressive
+provider: Progressive
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Insurance
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Quotes
+  spec_file: progressive-quotes-api-openapi.yml
+  capability_id: BC-2110.60
+  capability_id_l1: BC-2110
+  capability_name: Quote & Submission Management
+  confidence: 0.8
+  evidence: POST /quotes  createQuote  Create a quote; 'enables partners to embed auto insurance quoting
+    capabilities'
+  reason: Creating and listing insurance quotes for embedding in partner applications is quote generation
+    and submission flow; distribution-channel quote management is the closest fit, though it also touches
+    underwriting pricing.
