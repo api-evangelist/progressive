@@ -1,9 +1,8 @@
 aid: progressive
 name: Progressive
-description: The Progressive Corporation is one of the largest providers of car insurance
-  in the United States, also offering personal and commercial auto, home, renters,
-  boat, motorcycle, and other insurance products. Progressive operates a developer
-  portal at developer.progressive.com offering APIs for auto insurance quoting, certificate
+description: The Progressive Corporation is one of the largest providers of car insurance in the United States,
+  also offering personal and commercial auto, home, renters, boat, motorcycle, and other insurance products. Progressive
+  operates a developer portal at developer.progressive.com offering APIs for auto insurance quoting, certificate
   of insurance generation, and agent portal integrations.
 kind: contract
 deliveryModel:
@@ -19,16 +18,17 @@ deliveryModel:
   method: derived
 accessModel:
   pricing: enterprise
-  onboarding: self-serve
+  onboarding: unknown
   trial: false
   try_now: false
   public: false
-  label: Enterprise · Self-serve signup
-  confidence: high
+  label: Enterprise
+  confidence: medium
   source:
   - plans
   - authentication
-  generated: '2026-07-22'
+  - security
+  generated: '2026-09-03'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/progressive.png
 tags:
@@ -123,6 +123,27 @@ apis:
     url: graphql/progressive-graphql.md
   - type: Documentation
     url: https://developer.progressive.com/s/
+- aid: progressive:embedded-direct-quoting
+  name: Embedded Direct Quoting API
+  description: Returns an estimated auto insurance rate from consumer-supplied vehicle and driver data; partners
+    embed the quote flow directly inside their own product surfaces and complete the policy purchase end-to-end.
+    Available as both an SDK and a headless API across all 50 states.
+  humanURL: https://developer.progressive.com/s/embeddeddirectapidoc
+  tags:
+  - Quoting
+  - Auto Insurance
+  - Embedded Insurance
+  - Personal Lines
+- aid: progressive:certificate-of-insurance
+  name: Certificate of Insurance API
+  description: Generates or retrieves a certificate of insurance (COI) for a Progressive commercial policy; used
+    by lenders, brokers, and operations platforms that need real-time proof-of-coverage documents.
+  humanURL: https://developer.progressive.com/
+  tags:
+  - Certificate of Insurance
+  - COI
+  - Commercial Insurance
+  - Documents
 common:
 - type: CapabilityMap
   url: capabilities/progressive-capability-edges.yml
@@ -141,6 +162,11 @@ common:
   url: https://www.progressive.com/
 - type: Integrations
   url: https://www.progressive.com/partners/
+- type: GitHubOrganization
+  url: https://github.com/Progressive-Insurance
+- type: DeveloperPortal
+  url: https://developer.progressive.com/
+  description: Public developer portal (verified live 2026-05-22)
 integrations:
 - name: Progressive Insurance logo, Home page
 - name: Facebook
