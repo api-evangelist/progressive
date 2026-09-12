@@ -1,9 +1,6 @@
 aid: progressive
 name: Progressive
-description: The Progressive Corporation is one of the largest providers of car insurance in the United States,
-  also offering personal and commercial auto, home, renters, boat, motorcycle, and other insurance products. Progressive
-  operates a developer portal at developer.progressive.com offering APIs for auto insurance quoting, certificate
-  of insurance generation, and agent portal integrations.
+description: The Progressive Corporation is one of the largest providers of car insurance in the United States, also offering personal and commercial auto, home, renters, boat, motorcycle, and other insurance products. Progressive operates a developer portal at developer.progressive.com offering APIs for auto insurance quoting, certificate of insurance generation, and agent portal integrations.
 kind: contract
 deliveryModel:
   model: unknown
@@ -125,9 +122,7 @@ apis:
     url: https://developer.progressive.com/s/
 - aid: progressive:embedded-direct-quoting
   name: Embedded Direct Quoting API
-  description: Returns an estimated auto insurance rate from consumer-supplied vehicle and driver data; partners
-    embed the quote flow directly inside their own product surfaces and complete the policy purchase end-to-end.
-    Available as both an SDK and a headless API across all 50 states.
+  description: Returns an estimated auto insurance rate from consumer-supplied vehicle and driver data; partners embed the quote flow directly inside their own product surfaces and complete the policy purchase end-to-end. Available as both an SDK and a headless API across all 50 states.
   humanURL: https://developer.progressive.com/s/embeddeddirectapidoc
   tags:
   - Quoting
@@ -136,14 +131,22 @@ apis:
   - Personal Lines
 - aid: progressive:certificate-of-insurance
   name: Certificate of Insurance API
-  description: Generates or retrieves a certificate of insurance (COI) for a Progressive commercial policy; used
-    by lenders, brokers, and operations platforms that need real-time proof-of-coverage documents.
+  description: Generates or retrieves a certificate of insurance (COI) for a Progressive commercial policy; used by lenders, brokers, and operations platforms that need real-time proof-of-coverage documents.
   humanURL: https://developer.progressive.com/
   tags:
   - Certificate of Insurance
   - COI
   - Commercial Insurance
   - Documents
+- aid: progressive:commercial-auto-quoting
+  name: Commercial Auto Quoting API
+  description: Quoting product for commercial auto policies; enables partners to surface Progressive commercial-lines coverage and rate options within their onboarding or fleet-management flows.
+  humanURL: https://developer.progressive.com/s/clautoquoteapidoc
+  tags:
+  - Quoting
+  - Commercial Auto
+  - Commercial Insurance
+  properties: []
 common:
 - type: CapabilityMap
   url: capabilities/progressive-capability-edges.yml
