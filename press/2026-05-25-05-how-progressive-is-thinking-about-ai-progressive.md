@@ -1,7 +1,9 @@
 ---
 title: 'How Progressive is thinking about AI. #progressive ...'
 url: https://www.instagram.com/reel/DXIYDGDDamB/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Progressive" press release artificial intelligence'
 position: 5
 source: serpapi-google

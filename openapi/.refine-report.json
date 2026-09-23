@@ -1,22 +1,30 @@
 {
   "provider": "progressive",
   "sources": [
-    "progressive-certificates-api-openapi.yml",
-    "progressive-drivers-api-openapi.yml",
-    "progressive-policies-api-openapi.yml",
-    "progressive-quotes-api-openapi.yml",
-    "progressive-vehicles-api-openapi.yml"
+    "_original/progressive-auto-quote-api-openapi.yml",
+    "_original/progressive-certificate-of-insurance-api-openapi.yml"
   ],
   "outputs": [
-    "progressive-certificates-api-openapi.yml",
     "progressive-drivers-api-openapi.yml",
-    "progressive-policies-api-openapi.yml",
     "progressive-quotes-api-openapi.yml",
-    "progressive-vehicles-api-openapi.yml"
+    "progressive-vehicles-api-openapi.yml",
+    "progressive-certificates-api-openapi.yml",
+    "progressive-policies-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "progressive-auto-quote-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "progressive-certificate-of-insurance-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "progressive-certificates-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "progressive-drivers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "progressive-policies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "progressive-quotes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "progressive-vehicles-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

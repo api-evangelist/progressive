@@ -1,7 +1,9 @@
 ---
 title: Progressive Insurance® Imagines a World Where Animals ...
 url: https://progressive.mediaroom.com/news-releases/?item=122548
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Progressive" press release artificial intelligence'
 position: 2
 source: serpapi-google
