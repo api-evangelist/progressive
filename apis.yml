@@ -52,8 +52,6 @@ apis:
     url: openapi/progressive-certificates-api-openapi.yml
   - type: Documentation
     url: https://developer.progressive.com/s/clautoquoteapidoc
-  - type: GraphQL
-    url: graphql/progressive-graphql.md
   - type: Documentation
     url: https://developer.progressive.com/s/
 - aid: progressive:progressive-drivers-api
@@ -68,8 +66,6 @@ apis:
     url: openapi/progressive-drivers-api-openapi.yml
   - type: Documentation
     url: https://developer.progressive.com/s/clautoquoteapidoc
-  - type: GraphQL
-    url: graphql/progressive-graphql.md
   - type: Documentation
     url: https://developer.progressive.com/s/
 - aid: progressive:progressive-policies-api
@@ -84,8 +80,6 @@ apis:
     url: openapi/progressive-policies-api-openapi.yml
   - type: Documentation
     url: https://developer.progressive.com/s/clautoquoteapidoc
-  - type: GraphQL
-    url: graphql/progressive-graphql.md
   - type: Documentation
     url: https://developer.progressive.com/s/
 - aid: progressive:progressive-quotes-api
@@ -100,8 +94,6 @@ apis:
     url: openapi/progressive-quotes-api-openapi.yml
   - type: Documentation
     url: https://developer.progressive.com/s/clautoquoteapidoc
-  - type: GraphQL
-    url: graphql/progressive-graphql.md
   - type: Documentation
     url: https://developer.progressive.com/s/
 - aid: progressive:progressive-vehicles-api
@@ -116,8 +108,6 @@ apis:
     url: openapi/progressive-vehicles-api-openapi.yml
   - type: Documentation
     url: https://developer.progressive.com/s/clautoquoteapidoc
-  - type: GraphQL
-    url: graphql/progressive-graphql.md
   - type: Documentation
     url: https://developer.progressive.com/s/
 - aid: progressive:embedded-direct-quoting
